@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <title>ORBIT - Organisasi Basis IT</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header -->
+  <header id="header" class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div>
+        <a href="index.html">
+          <img src="uploads/logo/logo_orbit.png" alt="ORBIT Logo" class="h-10"> <!-- Adjust the height as needed -->
+        </a>
+      </div>
+      
+      <div class="md:hidden">
+        <button id="menu-btn" class="hamburger focus:outline-none">
+          <!-- Ikon Hamburger Baru -->
+          <svg class="hamburger-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            <!-- Ikon hamburger yang berbeda -->
+          </svg>
+        </button>
+      </div>
+      <nav class="hidden md:flex">
+        <ul class="flex space-x-8">
+          <li><a href="index.html" class="text-gray-600 hover:text-gray-900 transition duration-300">Home</a></li>
+          <li><a href="#about" class="text-gray-600 hover:text-gray-900 transition duration-300">Tentang </a></li>
+          <li><a href="#divisi" class="text-gray-600 hover:text-gray-900 transition duration-300">Divisi</a></li>
+          <li><a href="#kegiatan" class="text-gray-600 hover:text-gray-900 transition duration-300">Kegiatan</a></li>
+          <li><a href="#portofolio" class="text-gray-600 hover:text-gray-900 transition duration-300">Portofolio</a>
+          </li>
+          <li class="relative">
+            <a href="#blog" class="text-gray-600 hover:text-gray-900 transition duration-300">Blog</a>
+            <button id="blog-dropdown-btn"
+              class="text-gray-600 hover:text-gray-900 transition duration-300 focus:outline-none">
+              <svg class="inline w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <ul id="blog-dropdown" class="dropdown absolute left-0 mt-2 w-40 bg-white shadow-lg rounded-md z-20">
+              <li><a href="blog-post.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Blog 1</a></li>
+              <li><a href="blog-post1.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Blog 2</a></li>
+              <li><a href="blog-post2.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Blog 3</a></li>
+              <li><a href="#blog" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Semua Blog</a></li>
+            </ul>
+          </li>
+          <li><a href="#kontak" class="text-gray-600 hover:text-gray-900 transition duration-300">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="menu fixed inset-0 bg-gray-50 z-50 hidden shadow-lg transition-all duration-300 ease-in-out flex items-center justify-center">
+  <div class="bg-white w-4/5 md:w-2/3 lg:w-1/2 h-auto rounded-lg shadow-lg overflow-y-auto p-6">
+    <div class="flex justify-between items-center border-b border-gray-200 pb-4">
+      <!-- Logo -->
+      <a href="index.html" class="text-2xl font-bold text-gray-800">Organisasi Basis IT</a>
+      <!-- Close Button -->
+      <button id="close-btn" class="text-gray-800 transition duration-300 transform hover:scale-110 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+      
+      <nav class="flex flex-col items-start pt-4">
+        <ul class="space-y-4 w-full">
+          <li class="w-full">
+            <a href="index.html" class="flex items-center text-gray-800 hover:bg-gray-100 px-3 py-2 rounded transition duration-300">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
+              </svg>
+              Home
+            </a>
+          </li>
+          
+          <li class="w-full">
+            <a href="#about" class="flex items-center text-gray-800 hover:bg-gray-100 px-3 py-2 rounded transition duration-300">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"></path>
+              </svg>
+              Tentang
+            </a>
+          </li>
+          
+          <li class="w-full">
+            <a href="#divisi" class="flex items-center text-gray-800 hover:bg-gray-100 px-3 py-2 rounded transition duration-300">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"></path>
+              </svg>
+              Divisi
+            </a>
+          </li>
+          
+          <li class="w-full">
+            <a href="#kegiatan" class="flex items-center text-gray-800 hover:bg-gray-100 px-3 py-2 rounded transition duration-300">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"></path>
+              </svg>
+              Kegiatan
+            </a>
+          </li>
+          <li class="w-full">
+            <a href="#portofolio" class="flex items-center text-gray-800 hover:bg-gray-100 px-3 py-2 rounded transition duration-300">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z"></path>
+              </svg>
+              Portfolio
+            </a>
+          </li>
+          <li class="w-full">
+            <a href="#blog" class="flex items-center text-gray-800 hover:bg-gray-100 px-3 py-2 rounded transition duration-300">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"></path>
+              </svg>
+              Blog
+            </a>
+          </li>
+          <li class="w-full">
+            <a href="#kontak" class="flex items-center text-gray-800 hover:bg-gray-100 px-3 py-2 rounded transition duration-300">
+              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-6 6m3 12c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 0 1 4.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 0 0-.38 1.21 12.035 12.035 0 0 0 7.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 0 1 1.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 0 1-2.25 2.25h-2.25Z" ></path>
+              </svg>
+              Kontak
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Home Section -->
+  <section class="bg-cover bg-center text-white"
+    style="background-image: url('uploads/background/background.jpeg'); height: 650px;">
+    <div class="h-full flex items-start justify-center" style="padding-top: 260px;">
+      <!-- Sesuaikan padding-top untuk kontrol -->
+      <div class="text-center"> 
+        <h1 id="welcome-text" class="text-4xl font-bold home-title">Selamat Datang di ORBIT</h1>
+        <p class="text-lg mt-4 home-description">Membangun generasi muda yang berfokus pada inovasi dan teknologi</p>
+        <div class="mt-8 flex justify-center">
+          <a href="#"
+            class="bg-white text-orange-500 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 home-button">Gabung
+            Sekarang</a>
+          <a href="#about "
+            class="ml-4 bg-transparent border border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-orange-500 home-button">Pelajari
+            Lebih Lanjut</a>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Tentang ORBIT Section -->
+<section id="about" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold about-title bounce">Apa itu ORBIT?</h2>
+    <p class="mt-4 text-gray-600 about-description bounce">
+      Organisasi Basis IT yang berfokus pada 3 divisi utama: Programming, Cyber Security, dan Virtual Reality.
+    </p>
+    <a href="#divisi"
+      class="mt-6 inline-block bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 about-button bounce">Baca
+      Lebih Lanjut</a>
+  </div>
+</section>
+
+
+  <!-- Highlight Divisi Section -->
+  <section id="divisi" class="py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold">Divisi Utama Kami</h2>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Programming -->
+        <div class="divisi-card bg-white shadow-md rounded-lg p-6">
+          <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg" alt="Programming"
+            class="mx-auto mb-4 rounded-md zoom-effect" width="300" height="150">
+          <h3 class="text-xl font-semibold">Programming</h3>
+          <p class="mt-2 text-gray-600">Mengembangkan kemampuan coding dan membangun software inovatif.</p>
+        </div>
+        <!-- Cyber Security -->
+        <div class="divisi-card bg-white shadow-md rounded-lg p-6">
+          <img src="https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg" alt="Cyber Security"
+            class="mx-auto mb-4 rounded-md zoom-effect" width="300" height="150">
+          <h3 class="text-xl font-semibold">Cyber Security</h3>
+          <p class="mt-2 text-gray-600">Belajar melindungi sistem dan data dari serangan dunia maya.</p>
+        </div>
+        <!-- Virtual Reality -->
+        <div class="divisi-card bg-white shadow-md rounded-lg p-6">
+          <img src="https://images.pexels.com/photos/3913016/pexels-photo-3913016.jpeg" alt="Virtual Reality"
+            class="mx-auto mb-4 rounded-md zoom-effect" width="300" height="150">
+          <h3 class="text-xl font-semibold">Virtual Reality</h3>
+          <p class="mt-2 text-gray-600">Menjelajahi dunia virtual dan membangun animasi 3D.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Kegiatan Terbaru Section -->
+  <section id="kegiatan" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold">Kegiatan Terbaru Kami</h2>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="kegiatan-card transition-transform transform hover:scale-105 shadow-lg rounded-lg p-6">
+          <img src="uploads/kegiatan/cyber1.jpeg" alt="Event 1" class="mx-auto mb-4 rounded-md" width="300"
+            height="150">
+          <h3 class="text-xl font-semibold">Workshop Keamanan Siber</h3>
+          <p class="mt-2 text-gray-600">Workshop intensif untuk belajar dasar-dasar hacking dan keamanan siber.</p>
+        </div>
+        <div class="kegiatan-card transition-transform transform hover:scale-105 shadow-lg rounded-lg p-6">
+          <img src="uploads/kegiatan/programming1.jpeg" alt="Event 2" class="mx-auto mb-4 rounded-md" width="300"
+            height="150">
+          <h3 class="text-xl font-semibold">Hackathon Programming</h3>
+          <p class="mt-2 text-gray-600">Hackathon seru dengan berbagai tantangan programming.</p>
+        </div>
+        <div class="kegiatan-card transition-transform transform hover:scale-105 shadow-lg rounded-lg p-6">
+          <img src="uploads/kegiatan/virtual1.jpeg" alt="Event 3" class="mx-auto mb-4 rounded-md" width="300"
+            height="150">
+          <h3 class="text-xl font-semibold">Pameran Virtual Reality</h3>
+          <p class="mt-2 text-gray-600">Pameran hasil karya Virtual Reality oleh anggota.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Tim Kami 
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center">Pembina Utama</h2>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <img src="https://via.placeholder.com/150" alt="Co-Founder" class="mx-auto mb-4 rounded-full">
+        <h3 class="text-xl font-semibold">Jane Smith</h3>
+        <p class="text-gray-600">Pembina Umum ORBIT SMKN 1 Ngawi</p>
+      </div> -->
+  <!-- Portfolio Section -->
+  <section id="portofolio" class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold">Portofolio Kami</h2>
+      <p class="mt-4 text-gray-600">Lihat hasil karya terbaik dari anggota ORBIT dalam berbagai proyek teknologi.</p>
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Project 1: Website CTF -->
+        <div
+          class="bg-white shadow-md rounded-lg p-6 transition-transform duration-500 transform hover:scale-105 hover:shadow-xl">
+          <img src="uploads/portofolio/ctf.jpg" alt="Website CTF"
+            class="mx-auto mb-4 rounded-md transition-transform duration-500 transform hover:scale-110">
+          <h3 class="text-xl font-semibold">Pembuatan Website CTF</h3>
+          <p class="mt-2 text-gray-600">Sebuah platform CTF untuk belajar dan berkompetisi dalam dunia keamanan siber.
+          </p>
+          <a href="#" class="block mt-4 text-orange-500 hover:underline">Lihat Proyek</a>
+        </div>
+        <!-- Project 2: LMS ORBIT -->
+        <div
+          class="bg-white shadow-md rounded-lg p-6 transition-transform duration-500 transform hover:scale-105 hover:shadow-xl">
+          <img src="uploads/portofolio/lms.jpg" alt="LMS ORBIT"
+            class="mx-auto mb-4 rounded-md transition-transform duration-500 transform hover:scale-110">
+          <h3 class="text-xl font-semibold">Pembuatan LMS ORBIT</h3>
+          <p class="mt-2 text-gray-600">Sistem manajemen pembelajaran untuk mendukung kegiatan edukasi anggota.</p>
+          <a href="#" class="block mt-4 text-orange-500 hover:underline">Lihat Proyek</a>
+        </div>
+        <!-- Project 3: Virtual Reality Showcase -->
+        <div
+          class="bg-white shadow-md rounded-lg p-6 transition-transform duration-500 transform hover:scale-105 hover:shadow-xl">
+          <img
+            src="https://images.pexels.com/photos/7562023/pexels-photo-7562023.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=300"
+            alt="Virtual Reality Showcase"
+            class="mx-auto mb-4 rounded-md transition-transform duration-500 transform hover:scale-110">
+          <h3 class="text-xl font-semibold">Virtual Reality Showcase</h3>
+          <p class="mt-2 text-gray-600">Pameran virtual reality yang menampilkan karya-karya inovatif dari anggota
+            divisi VR.</p>
+          <a href="#" class="block mt-4 text-orange-500 hover:underline">Lihat Proyek</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimoni Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-4xl font-extrabold text-gray-800">Apa Kata Mereka?</h2>
+      <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Testimoni dari para anggota ORBIT yang telah mendapatkan manfaat
+        dari program pelatihan dan pembinaan kami.</p>
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Testimonial 2 -->
+        <div
+          class="bg-white shadow-lg rounded-lg p-8 transition duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl">
+          <p class="italic text-gray-700">"Pelatihan sederhana tetapi membuat sederhana menjadi berkualitas."</p>
+          <h4 class="mt-6 font-semibold text-lg text-gray-900 animate-name">Anggota ORBIT A3</h4>
+        </div>
+        <!-- Testimonial 1 -->
+        <div
+          class="bg-white shadow-lg rounded-lg p-8 transition duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl">
+          <p class="italic text-gray-700">"Ekstrakurikuler ORBIT telah membuka wawasan saya tentang dunia IT."</p>
+          <h4 class="mt-6 font-semibold text-lg text-gray-900 animate-name">DKH ORBIT A3</h4>
+        </div>
+        <!-- Testimonial 3 -->
+        <div
+          class="bg-white shadow-lg rounded-lg p-8 transition duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl">
+          <p class="italic text-gray-700">"Kualitas dan dedikasi dari tim ORBIT sungguh luar biasa, hasil kerja mereka
+            jauh melampaui ekspektasi."</p>
+          <h4 class="mt-6 font-semibold text-lg text-gray-900 animate-name">Anonymous</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Call to Action Section -->
+  <section class="py-20 bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+    <div class="container mx-auto px-6 md:px-12 lg:px-16 text-center">
+      <h2 class="text-4xl font-extrabold leading-tight animate-pulse">Ingin Bergabung Di ORBIT?</h2>
+      <p class="mt-6 text-lg max-w-xl mx-auto animate-fade-in-out">Hubungi kami sekarang dan ciptakan
+        sesuatu yang luar biasa!</p>
+      <div class="mt-10 animate-bounce-slow">
+        <a href="#kontak"
+          class="inline-block bg-white text-orange-600 px-8 py-4 rounded-full font-bold text-lg shadow-md transition duration-300 ease-in-out transform hover:bg-gray-200 hover:-translate-y-1 hover:shadow-xl">
+          Hubungi Kami
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Blog Section -->
+  <section id="blog" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Blog Terbaru Kami</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Blog Post 1 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <img src="uploads/projek/keamanan_siber.jpg" alt="Blog Post 1" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Keamanan Siber di Era Digital</h3>
+            <p class="text-gray-600 mb-4">Keamanan siber menjadi sangat penting di era digital ini. Simak bagaimana kita
+              bisa menjaga data kita tetap aman.</p>
+            <a href="blog-post.html" class="block text-orange-500 font-semibold hover:underline">Baca Selengkapnya</a>
+          </div>
+        </div>
+        <!-- Blog Post 2 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <img src="https://images.pexels.com/photos/3405456/pexels-photo-3405456.jpeg" alt="Masa Depan Virtual Reality"
+            class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Masa Depan Virtual Reality</h3>
+            <p class="text-gray-600 mb-4">Pelajari bagaimana teknologi ini digunakan dalam pendidikan dan kesehatan.</p>
+            <a href="blog-post1.html" class="block text-orange-500 font-semibold hover:underline">Baca Selengkapnya</a>
+          </div>
+        </div>
+        <!-- Blog Post 3: Pengembangan Aplikasi Berbasis Cloud -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <img src="https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg"
+            alt="Pengembangan Aplikasi Berbasis Cloud" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Pengembangan Aplikasi Berbasis Cloud</h3>
+            <p class="text-gray-600 mb-4">Cloud computing membuka peluang besar bagi pengembang aplikasi. Simak
+              bagaimana cara memulainya.</p>
+            <a href="blog-post2.html" class="block text-orange-500 font-semibold hover:underline">Baca Selengkapnya</a>
+          </div>
+        </div>
+  </section>
+  <!-- Kontak Kami Section -->
+  <section id="kontak" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-6 animate-vibrate">Hubungi Kami</h1>
+      <p class="text-lg text-gray-700 text-center mb-12 max-w-2xl mx-auto animate-fadeIn delay-150">
+        Jika Anda memiliki pertanyaan, jangan ragu untuk menghubungi kami melalui form di bawah ini. Kami siap membantu
+        Anda.
+      </p>
+      <!-- Informasi Kontak & Peta Lokasi -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+        <div
+          class="bg-white rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 hover:shadow-xl animate-fadeIn">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Informasi Kontak</h2>
+          <ul class="space-y-4 text-lg text-gray-700">
+            <li><strong>Alamat:</strong> Jl. Teuku Umar No.10, Kabupaten Ngawi, Jawa Timur </li>
+            <li><strong>Email:</strong> <a href="mailto:orbit@smkn1ngawi.sch.id"
+                class="text-blue-600 hover:underline">orbit@smkn1ngawi.sch.id</a></li>
+            <li><strong>Telepon:</strong> <a href="tel:+6281234567890" class="text-blue-600 hover:underline">+62 812
+                3456 7890</a></li>
+            <li><strong>Jam Kerja:</strong> Senin, Rabu, Sabtu, 15.00 - 17:00 WIB</li>
+          </ul>
+        </div>
+        <!-- Peta Lokasi -->
+        <div
+          class="bg-white rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105 hover:shadow-xl animate-fadeIn delay-200">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Lokasi Kami</h2>
+          <iframe class="w-full h-72 rounded-lg shadow-lg"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.5746363810795!2d111.44138667592982!3d-7.401464392608571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e79e7c5af82f985%3A0xeae5d5aad2ab3174!2sSMK%20Negeri%201%20Ngawi!5e0!3m2!1sen!2sid!4v1729302238814!5m2!1sen!2sid"
+            allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="max-w-2xl mx-auto">
+ <!-- Judul Form Kontak -->
+<h2 class="text-3xl font-bold text-center text-black mb-6 animate-fadeIn delay-300">Formulir Kontak</h2>
+<form id="contactForm" class="bg-gradient-to-r from-orange-500 to-orange-300 bg-opacity-80 p-8 rounded-lg shadow-md animate-fadeIn delay-400 animate-shake">
+  
+  <div class="mb-4">
+    <label for="fullName" class="block text-sm font-medium text-white mb-2">Nama Lengkap</label>
+    <input type="text" id="fullName" name="fullName"
+      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required>
+  </div>
+  
+  <div class="mb-4">
+    <label for="class" class="block text-sm font-medium text-white mb-2">Kelas</label>
+    <input type="text" id="class" name="class"
+      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required>
+  </div>
+  
+  <div class="mb-4">
+    <label for="phone" class="block text-sm font-medium text-white mb-2">Nomor WhatsApp</label>
+    <input type="tel" id="phone" name="phone"
+      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required>
+  </div>
+
+  <div class="mb-4">
+    <label for="email" class="block text-sm font-medium text-white mb-2">Email Aktif</label>
+    <input type="email" id="email" name="email"
+      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required>
+  </div>
+
+  <div class="mb-4">
+    <label for="message" class="block text-sm font-medium text-white mb-2">Pesan</label>
+    <textarea id="message" name="message" rows="5"
+      class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      required></textarea>
+  </div>
+
+  <div class="text-center">
+    <button type="submit"
+      class="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-105 animate-shake">Kirim
+      Pesan</button>
+  </div>
+</form>
+
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2024 ORBIT - Organisasi Basis IT. All Rights Reserved.</p>
+      <div class="mt-4">
+        <a href="#" class="text-gray-400 hover:text-white mx-2">Privacy Policy</a>
+        <a href="#" class="text-gray-400 hover:text-white mx-2">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

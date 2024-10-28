@@ -1,0 +1,497 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Menyembunyikan menu mobile secara default */
+#mobile-menu {
+  display: none;
+  position: fixed; /* Menjaga agar tetap fixed di mobile */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 50;
+}
+
+/* Tampilkan menu mobile di perangkat dengan lebar di bawah 768px */
+@media (max-width: 768px) {
+  #mobile-menu {
+    display: block;
+  }
+
+  /* Menyembunyikan menu desktop */
+  #desktop-menu {
+    display: none;
+  }
+}
+
+/* Untuk layar lebih besar (di atas 768px) */
+@media (min-width: 768px) {
+  /* Menyembunyikan menu mobile di desktop */
+  #mobile-menu {
+    display: none;
+  }
+
+  /* Tampilkan menu desktop */
+  #desktop-menu {
+    display: flex; /* Tetap gunakan flexbox untuk tata letak yang rapi */
+    justify-content: space-around; /* Sesuaikan ini dengan layout awal */
+    align-items: center; /* Menjaga konten navbar tetap rapi di tengah */
+    position: relative; /* Memastikan navbar tetap di atas layout */
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Memastikan navbar tetap terlihat */
+    background-color: white; /* Beri warna latar belakang */
+    padding: 10px 20px; /* Sesuaikan dengan desain awal */
+  }
+}
+
+
+
+
+.hamburger {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.hamburger:hover {
+  transform: scale(1.1);
+  /* Efek hover untuk memperbesar */
+}
+.hamburger-icon {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.line {
+  transition: all 0.2s ease-in-out;
+  /* Memastikan perubahan tampilan cepat */
+}
+.open .top {
+  display: none;
+  /* Menyembunyikan garis atas */
+}
+.open .middle {
+  display: none;
+  /* Menyembunyikan garis tengah */
+}
+.open .bottom {
+  display: none;
+  /* Menyembunyikan garis bawah */
+}
+.home-title {
+  overflow: hidden;
+  /* Menyembunyikan teks yang tidak ditampilkan */
+  white-space: nowrap;
+  /* Menghindari teks membungkus ke baris baru */
+  animation: typing 4s steps(30, end);
+  /* Menggunakan animasi mengetik */
+}
+@keyframes typing {
+  from {
+    width: 0;
+    /* Mulai dari lebar 0 */
+  }
+  to {
+    width: 100%;
+    /* Akhirkan lebar ke 100% */
+  }
+}
+/* Menu yang dimulai di atas layar */
+.menu {
+  transform: translateY(-100%);
+  /* Menu dimulai di atas layar */
+  opacity: 0;
+  /* Mulai dengan opacity 0 untuk efek fade */
+  filter: blur(2px);
+  /* Blur saat menu dimulai */
+  box-shadow: none;
+  /* Tidak ada bayangan saat menu dimulai */
+  transition: transform 0.5s ease, opacity 0.3s ease, filter 0.5s ease, box-shadow 0.5s ease;
+  /* Transisi untuk transformasi, opacity, blur, dan shadow */
+}
+/* Ketika menu aktif */
+.menu-enter-active {
+  transform: translateY(0);
+  /* Menu bergerak turun */
+  opacity: 1;
+  /* Fade in menu saat muncul */
+  filter: blur(0);
+  /* Hapus blur saat menu sudah terlihat */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  /* Tambahkan bayangan saat menu muncul */
+}
+html {
+  scroll-behavior: smooth;
+  /* For modern browsers */
+}
+/* Header styling */
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+/* Styling untuk dropdown */
+.dropdown {
+  display: none;
+  /* Sembunyikan dropdown secara default */
+}
+.dropdown.active {
+  display: block;
+  /* Tampilkan dropdown saat aktif */
+}
+/* Menyembunyikan menu hamburger secara default */
+.menu {
+  display: none;
+}
+@media (max-width: 768px) {
+  .menu {
+    display: block;
+  }
+}
+/* Animasi untuk menu */
+.menu-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.menu-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.menu-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.menu-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.hover-animate {
+  transition: transform 0.3s ease;
+}
+.hover-animate:hover {
+  transform: scale(1.05);
+}
+/* Animasi untuk Divisi Card */
+.divisi-card {
+  opacity: 0;
+  /* Mulai dengan opacity 0 */
+  transform: translateY(20px);
+  /* Mulai dengan posisi sedikit lebih rendah */
+  animation: fadeInUp 0.6s forwards;
+  /* Memanggil animasi */
+}
+/* Animasi Fade In Up */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    /* Akhir dengan opacity 1 */
+    transform: translateY(0);
+    /* Kembali ke posisi awal */
+  }
+}
+/* Mengatur animasi untuk setiap kartu dengan delay */
+.divisi-card:nth-child(1) {
+  animation-delay: 0.1s;
+  /* Delay untuk kartu pertama */
+}
+.divisi-card:nth-child(2) {
+  animation-delay: 0.2s;
+  /* Delay untuk kartu kedua */
+}
+.divisi-card:nth-child(3) {
+  animation-delay: 0.3s;
+  /* Delay untuk kartu ketiga */
+}
+/* Tambahkan efek hover untuk meningkatkan interaksi */
+.divisi-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Tambah bayangan saat hover */
+  transform: translateY(-5px);
+  /* Efek angkat sedikit saat hover */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  /* Transisi halus */
+}
+/* Animasi untuk Home Section */
+.home-title {
+  opacity: 0;
+  /* Mulai dengan opacity 0 */
+  transform: translateY(-30px) rotate(3deg);
+  /* Mulai dengan posisi lebih tinggi dan sedikit berputar */
+  animation: titleAnimation 0.8s ease forwards;
+  /* Animasi untuk judul */
+}
+.home-description,
+.home-button {
+  opacity: 0;
+  /* Mulai dengan opacity 0 */
+  transform: translateY(30px);
+  /* Mulai dengan posisi lebih rendah */
+  animation: fadeInUp 0.6s ease forwards;
+  /* Animasi untuk deskripsi dan tombol */
+}
+/* Animasi untuk judul */
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+    /* Mulai dengan opacity 0 */
+    transform: translateY(-30px) rotate(3deg);
+    /* Posisi lebih tinggi dan berputar */
+  }
+  70% {
+    opacity: 1;
+    /* Sedikit transparan */
+    transform: translateY(10px) rotate(-2deg);
+    /* Sedikit ke bawah dan berputar terbalik */
+  }
+  100% {
+    opacity: 1;
+    /* Akhir dengan opacity 1 */
+    transform: translateY(0) rotate(0deg);
+    /* Kembali ke posisi normal */
+  }
+}
+/* Animasi Fade In untuk deskripsi dan tombol */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    /* Mulai dengan opacity 0 */
+    transform: translateY(30px);
+    /* Mulai dengan posisi lebih rendah */
+  }
+  100% {
+    opacity: 1;
+    /* Akhir dengan opacity 1 */
+    transform: translateY(0);
+    /* Kembali ke posisi awal */
+  }
+}
+/* Mengatur animasi untuk setiap elemen dengan delay */
+.home-title {
+  animation-delay: 0.1s;
+  /* Delay untuk judul */
+}
+.home-description {
+  animation-delay: 0.3s;
+  /* Delay untuk paragraf */
+}
+.home-button {
+  animation-delay: 0.4s;
+  /* Delay untuk tombol */
+}
+/* Animasi Fade-in dengan Zoom-in */
+.animate-text {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fadeZoomIn 2s ease-in-out forwards;
+  transition: all 0.3s ease-in-out;
+}
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Efek Hover: teks akan sedikit membesar saat dihover */
+.animate-text:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+/* Animasi untuk Tentang ORBIT Section */
+.about-title,
+.about-description,
+.about-button {
+  opacity: 0;
+  /* Mulai dengan opacity 0 */
+  transform: translateY(20px);
+  /* Mulai dengan posisi sedikit lebih rendah */
+  animation: fadeInUp 0.6s forwards;
+  /* Memanggil animasi */
+}
+/* Animasi Fade In Up */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    /* Akhir dengan opacity 1 */
+    transform: translateY(0);
+    /* Kembali ke posisi awal */
+  }
+}
+/* Mengatur animasi untuk setiap elemen dengan delay */
+.about-title {
+  animation-delay: 0.1s;
+  /* Delay untuk judul */
+}
+.about-description {
+  animation-delay: 0.2s;
+  /* Delay untuk paragraf */
+}
+.about-button {
+  animation-delay: 0.3s;
+  /* Delay untuk tombol */
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fade-in 0.5s forwards;
+}
+.transform {
+  transition: transform 0.3s ease;
+}
+.transition-transform {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+.hover\:shadow-xl:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.hover\:scale-110:hover {
+  transform: scale(1.10);
+}
+/* Animasi pergerakan teks */
+@keyframes slideInRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Menerapkan animasi ke nama */
+.animate-name {
+  animation: slideInRight 1.5s ease-in-out forwards;
+  display: inline-block;
+}
+/* Untuk membuat animasi bergerak terus-menerus */
+@keyframes textMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* Menerapkan animasi terus-menerus ke nama anggota */
+.animate-name {
+  animation: slideInRight 1.5s ease-in-out forwards, textMove 3s infinite ease-in-out;
+}
+@keyframes vibrate {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-2px, 0);
+  }
+  50% {
+    transform: translate(2px, 0);
+  }
+  75% {
+    transform: translate(-2px, 0);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-vibrate {
+  animation: vibrate 0.2s infinite;
+}
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+/* Style untuk efek mengetik responsif */
+.typing-effect {
+  font-family: sans-serif;
+  font-size: 1.2rem;
+  border-right: 2px solid #333;
+  display: inline-block;
+  overflow: hidden;
+  white-space: normal;
+  /* Membiarkan teks otomatis membungkus */
+  word-break: break-word;
+  /* Membiarkan kata-kata terputus di akhir baris jika terlalu panjang */
+  animation: blink 0.75s step-end infinite;
+  max-width: 100%;
+  /* Agar tidak melebihi lebar container */
+  text-align: left;
+  /* Pengetikan tetap rapi di kiri meski di dalam tag <p> */
+}
+/* Ukuran teks lebih kecil untuk mobile */
+@media (max-width: 768px) {
+  .typing-effect {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .typing-effect {
+    font-size: 0.9rem;
+  }
+}
+/* Efek blink pada kursor */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+
+
+
+
+
