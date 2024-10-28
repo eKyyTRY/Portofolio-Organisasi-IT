@@ -121,19 +121,6 @@ function smoothScroll(target, duration) {
   requestAnimationFrame(animation);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
@@ -145,7 +132,7 @@ function smoothScroll(target, duration) {
     const message = document.getElementById('message').value;
 
     // WhatsApp number to send the message
-    const whatsappNumber = '6281365786012';
+    const whatsappNumber = '62123456789';
 
     // Construct the message
     const textMessage = `Nama: ${fullName}\nKelas: ${classValue}\nNomor WhatsApp: ${phone}\nEmail: ${email}\nPesan: ${message}`;
